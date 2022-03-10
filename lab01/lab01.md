@@ -1,11 +1,11 @@
 # Getting started
 
-`docker run hello-world` #downloads image if not localy and runs <br />
-`docker pull hello-world` #only download image <br />
+`docker run hello-world` # downloads image if not localy and runs <br />
+`docker pull hello-world` # only download image <br />
 `docker ps` <br />
 `docker ps -a` <br />
-`dokcer start <id||name>` #returns id || name <br />
-`docker start -a <id||name>` #shows result of command in terminal <br />
+`dokcer start <id||name>` # returns id || name <br />
+`docker start -a <id||name>` # shows result of command in terminal <br />
 
 -   start -> id or name
 -   run -> image name
@@ -21,3 +21,4 @@
 `docker image ls` <br />
 `docker run -e <variable> <id||name>` # some require to set env variables <br />
 `docker rm <id|name>` <br />
+`docker system prune [OPTIONS]` <br /> # Remove all unused containers, networks, images (both dangling and unreferenced), and optionally, volumes.
