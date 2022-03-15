@@ -10,8 +10,8 @@
 
 ![ScreenShot](zad1-2.PNG)
 
-`docker exec -it eda4011e968c sh` <br /> # Run a command in a running container
-`echo "My first file" > readme.txt` <br /> # command inside container shell
+`docker exec -it eda4011e968c sh` # Run a command in a running container <br />
+`echo "My first file" > readme.txt` # command inside container shell <br />
 
 ![ScreenShot](zad3-4.PNG)
 
@@ -23,3 +23,6 @@ Komenda `docker run` tworzy nowey kontener z obrazu. <br />
 `docker exec <container> bash -c "command1 ; command2 ; command3"` <br />
 `docker exec c43ac9f8afb3 sh -c "echo 'Created from outside' > createdFile.txt"` <br />
 
+`docker create --name my_container busybox echo "‘Hello world from my container"` <br />
+
+![ScreenShot](zad6.PNG)
