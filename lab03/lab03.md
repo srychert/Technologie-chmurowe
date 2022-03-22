@@ -17,3 +17,9 @@
 `docker run -d -p 4200:80 myngnix` <br />
 
 ![ScreenShot](zad3/zad3.PNG) <br />
+
+# Zadanie 4
+`docker build -t nodescript .\zad4\.` <br />
+`docker run -it nodescript` <br />
+
+![ScreenShot](zad4/zad4.PNG) <br />
