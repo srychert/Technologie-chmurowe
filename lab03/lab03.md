@@ -10,4 +10,10 @@
 `docker build -t mybusybox .\zad2\.` <br />
 `docker run -it mybusybox` <br />
 
-![ScreenShot](zad2/zad2.PNG)
+![ScreenShot](zad2/zad2.PNG) <br />
+
+# Zadanie 3
+`docker build -t myngnix .\zad3\.` <br />
+`docker run -d -p 4200:80 myngnix` <br />
+
+![ScreenShot](zad3/zad3.PNG) <br />
