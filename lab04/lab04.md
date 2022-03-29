@@ -11,4 +11,4 @@
 
 3) If you EXPOSE and -p a port, the service in the container is accessible from anywhere, even outside Docker.
 >
-
+![ScreenShot](zad1/zad1.PNG) <br />
