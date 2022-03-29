@@ -12,3 +12,7 @@
 3) If you EXPOSE and -p a port, the service in the container is accessible from anywhere, even outside Docker.
 
 ![ScreenShot](zad1/zad1.PNG) <br />
+
+## Zadanie 2
+[docker hub image](https://hub.docker.com/layers/200010465/srychert/express-node/latest/images/sha256-fb94c962d3ceb4e1e6fafb922c71035671e8725700900bca12a87c8a26132fc3?context=repo)
+<br />
