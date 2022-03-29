@@ -1,0 +1,13 @@
+FROM node:14
+# Location of app
+WORKDIR /usr/src/my_node_app
+# Copy package.json first
+COPY ./package.json ./
+# Install node_modules
+RUN npm install
+# Copy rest of the files
+COPY . .
+# Epose port 8080 - more in md file for lab04
+EXPOSE 8080
+# Run node server.js
+CMD [ "node", "server.js" ]
