@@ -16,3 +16,6 @@
 ## Zadanie 2
 [docker hub image](https://hub.docker.com/layers/200010465/srychert/express-node/latest/images/sha256-fb94c962d3ceb4e1e6fafb922c71035671e8725700900bca12a87c8a26132fc3?context=repo)
 <br />
+
+## Zadanie 3
+`docker run -it --rm -p 3100:3000 -v /opt/app/node_modules -v ${PWD}:/opt/app -e CHOKIDAR_USEPOLLING=true <image id>` <br />
