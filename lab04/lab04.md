@@ -14,6 +14,8 @@
 ![ScreenShot](zad1/zad1.PNG) <br />
 
 ## Zadanie 2
+![ScreenShot](zad2/zad2.PNG) <br />
+
 [docker hub image](https://hub.docker.com/layers/200010465/srychert/express-node/latest/images/sha256-fb94c962d3ceb4e1e6fafb922c71035671e8725700900bca12a87c8a26132fc3?context=repo)
 <br />
 
