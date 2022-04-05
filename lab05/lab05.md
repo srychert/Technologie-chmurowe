@@ -20,3 +20,9 @@ Utworzony kontener należy do sieci bridge
 - Host -> In this mode container will share the host’s network stack and all interfaces from the host will be available to the container. The container’s host name will match the host name on the host system
 
 - Bridge -> It is the Docker default networking mode which will enable the connectivity to the other interfaces of the host machine as well as among containers.
+
+## Zadanie 2
+
+`docker run --name first --network=firstNetwork -p 80:80 -d nginx` </br>
+
+![ScreenShot](zad2/inspect.PNG) <br />
