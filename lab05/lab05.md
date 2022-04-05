@@ -23,6 +23,15 @@ Utworzony kontener należy do sieci bridge
 
 ## Zadanie 2
 
-`docker run --name first --network=firstNetwork -p 80:80 -d nginx` </br>
+`docker run --name second --network=firstNetwork -p 3000:80 -d nginx` </br>
+`docker network inspect firstNetwork` </br>
 
 ![ScreenShot](zad2/inspect.PNG) <br />
+
+
+## Zadanie 3
+
+`docker network connect firstNetwork first` </br>
+`docker network inspect firstNetwork` </br>
+
+![ScreenShot](zad3/connect.PNG) <br />
