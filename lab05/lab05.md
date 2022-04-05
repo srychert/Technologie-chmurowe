@@ -1,19 +1,19 @@
 #  Networks, volumes
 
-`docker network connect <nazwa>` Connect a container to a network </br>
-`docker network create <nazwa>` Create a network </br>
-`docker network disconnect <nazwa>` Disconnect a container from a network </br>
-`docker network inspect <nazwa>` Display detailed information on one or more networks </br>
-`docker network ls` List networks </br>
-`docker network rm <nazwa>` Remove one or more networks </br>
-`docker network prune` Remove all unused networks </br>
+`docker network connect <nazwa>` Connect a container to a network <br/>
+`docker network create <nazwa>` Create a network <br/>
+`docker network disconnect <nazwa>` Disconnect a container from a network <br/>
+`docker network inspect <nazwa>` Display detailed information on one or more networks <br/>
+`docker network ls` List networks <br/>
+`docker network rm <nazwa>` Remove one or more networks <br/>
+`docker network prune` Remove all unused networks <br/>
 
 ## Zadanie 1
 
-`docker run --name first -p 80:80 -d nginx` </br>
+`docker run --name first -p 80:80 -d nginx` <br/>
 Utworzony kontener należy do sieci bridge
 
-![ScreenShot](zad1/networks.PNG) <br />
+![ScreenShot](zad1/networks.PNG) <br/>
 
 - None -> This mode will not configure any IP for the container and doesn’t have any access to the external network as well as for other containers. It does have the loopback address and can be used for running batch jobs.
 
@@ -23,21 +23,25 @@ Utworzony kontener należy do sieci bridge
 
 ## Zadanie 2
 
-`docker run --name second --network=firstNetwork -p 3000:80 -d nginx` </br>
-`docker network inspect firstNetwork` </br>
+`docker run --name second --network=firstNetwork -p 3000:80 -d nginx` <br/>
+`docker network inspect firstNetwork` <br/>
 
-![ScreenShot](zad2/inspect.PNG) <br />
+![ScreenShot](zad2/inspect.PNG) <br/>
 
 
 ## Zadanie 3
 
-`docker network connect firstNetwork first` </br>
-`docker network inspect firstNetwork` </br>
+`docker network connect firstNetwork first` <br/>
+`docker network inspect firstNetwork` <br/>
 
-![ScreenShot](zad3/connect.PNG) <br />
+![ScreenShot](zad3/connect.PNG) <br/>
 
 
 ## Zadanie 4
 
-![ScreenShot](zad4/remove.PNG) <br />
+![ScreenShot](zad4/remove.PNG) <br/>
 
+## Zadanie 5
+
+`docker volume create pgdata` <br/>
+`docker run -d -p 5432:5432 --name my-postgres-with-volume -e POSTGRES_PASSWORD=tajne -v pgdata postgres` <br/>
