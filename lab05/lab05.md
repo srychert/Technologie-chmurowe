@@ -56,3 +56,13 @@ CREATE TABLE IF NOT EXISTS users (
 INSERT INTO users(username, password, email) VALUES ('example_user', 'example_password', 'user@example.com');
 
 ![ScreenShot](zad5/pg_volume.PNG) <br/>
+
+## Zadanie 6
+
+`docker container run --name redis-server-2 -d -p 6379:6379 redis` <br/>
+`docker network create bazy` <br/>
+`docker network connect bazy redis-server-2` <br/>
+`docker network connect bazy my-postgres-with-volume` <br/>
+`docker network inspect bazy` <br/>
+
+![ScreenShot](zad6/bazy.PNG) <br/>
