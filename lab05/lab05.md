@@ -35,3 +35,9 @@ Utworzony kontener należy do sieci bridge
 `docker network inspect firstNetwork` </br>
 
 ![ScreenShot](zad3/connect.PNG) <br />
+
+
+## Zadanie 4
+
+![ScreenShot](zad4/remove.PNG) <br />
+
