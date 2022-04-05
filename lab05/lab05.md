@@ -44,4 +44,15 @@ Utworzony kontener należy do sieci bridge
 ## Zadanie 5
 
 `docker volume create pgdata` <br/>
-`docker run -d -p 5432:5432 --name my-postgres-with-volume -e POSTGRES_PASSWORD=tajne -v pgdata postgres` <br/>
+`docker run -d -p 5432:5432 --name my-postgres-with-volume -e POSTGRES_PASSWORD=tajne -v pgdata:/var/lib/postgresql/data postgres` <br/>
+
+CREATE TABLE IF NOT EXISTS users (
+	user_id serial PRIMARY KEY,
+	username VARCHAR ( 50 ) UNIQUE NOT NULL,
+	password VARCHAR ( 50 ) NOT NULL,
+	email VARCHAR ( 255 ) UNIQUE NOT NULL
+);
+
+INSERT INTO users(username, password, email) VALUES ('example_user', 'example_password', 'user@example.com');
+
+![ScreenShot](zad5/pg_volume.PNG) <br/>
