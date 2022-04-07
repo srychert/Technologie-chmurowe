@@ -1,0 +1,17 @@
+FROM node:alpine
+
+RUN npm install -g nodemon
+
+WORKDIR /opt/app
+
+COPY ./package.json ./
+
+RUN yarn install
+
+COPY . .
+
+EXPOSE 4000
+
+CMD ["npm", "run", "dev"]
+
+# CMD node index.js

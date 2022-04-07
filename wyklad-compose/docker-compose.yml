@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  mybackend:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./mybackend
+    environment:
+      - POSTGRES_PASSWORD=tajne
+      - POSTGRES_DB=myappdb
+      - POSTGRES_USER=myappuser
+      - POSTGRES_HOST=mypostgres
+      - REDIS_HOST=myredis
+    volumes:
+      - /opt/app/node_modules
+      - ./mybackend:/opt/app
+
+  mynginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./mynginx
+    ports:
+      - '9090:80'
+  
+  myredis:
+    image: redis:alpine
+
+  myfrontend:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./myfrontend
+    volumes:
+      - /opt/front/node_modules
+      - ./myfrontend:/opt/front
+
