@@ -30,7 +30,7 @@ app.use(cors())
 
 
 app.get('/hello', (req, res) => {
-    res.send('Hello form backend!\n')
+    res.json({ msg: "Hello form backend!\n" })
 })
 
 app.listen(port, () => {

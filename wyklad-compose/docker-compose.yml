@@ -23,7 +23,7 @@ services:
       context: ./mynginx
     ports:
       - '9090:80'
-  
+
   myredis:
     image: redis:alpine
 
@@ -35,4 +35,5 @@ services:
     volumes:
       - /opt/front/node_modules
       - ./myfrontend:/opt/front
-
+    # stdin_open: true
+    # tty: true
