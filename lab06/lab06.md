@@ -19,3 +19,7 @@ Stop running containers without removing them <br/>
 Stops containers and removes containers, networks, volumes, and images
 created by `up`. </br>
 > ` -v, --volumes` -->  Remove named volumes declared in the `volumes` section of the Compose file and anonymous volumes attached to containers.
+
+## Zadanie 2
+
+![ScreenShot](zad2.PNG) <br/>
