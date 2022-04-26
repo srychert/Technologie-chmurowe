@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./backend
+    environment:
+      - PGPORT=5000
+      - REDIS_PORT=6379
+      - REDIS_HOST=redis
+    #Host:Container
+    ports:
+      - 5000:5000
+    volumes:
+      - ./backend:/app
+      - ./backend/node_modules
+    depends_on:
+      - redis
+  redis:
+    image: redis:alpine
+    restart: always
+    command: redis-server
