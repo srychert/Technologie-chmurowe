@@ -66,3 +66,30 @@ INSERT INTO users(username, password, email) VALUES ('example_user', 'example_pa
 `docker network inspect bazy` <br/>
 
 ![ScreenShot](zad6/bazy.PNG) <br/>
+
+## Zadanie 7
+
+### Step 1
+Create volume for postgres database <br />
+`docker volume create pgnwd` <br />
+
+Create Network </br>
+`docker network create --subnet 172.20.0.0/16 nwd` <br />
+
+### Step 2
+Run postgres container with volume <br />
+`docker run -d -p 5432:5432 --name postgres-nwd -e POSTGRES_PASSWORD=tajne -v pgnwd:/var/lib/postgresql/data postgres` <br />
+
+Connect db to network and specify ip <br />
+`docker network connect --ip 172.20.0.5 nwd postgres-nwd` <br />
+
+### Step 3
+Build api image (must be in api folder) <br />
+`docker build -t api -f .\Dockerfile.dev .` <br/>
+
+Run api container in dev mode <br />
+`docker run --name api_c -it --rm -p 4000:4000 --network=nwd -v D:\Technologie-chmurowe\lab05\zad7\api:/app -v /app/node_modules api` <br/>
+
+### Step 4
+Try it <br />
+`curl "localhost:4000/api/nwd?x=16&y=14"` -> {"id":1,"nwd":2} <br />
