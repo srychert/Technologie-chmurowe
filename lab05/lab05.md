@@ -84,12 +84,19 @@ Connect db to network and specify ip <br />
 `docker network connect --ip 172.20.0.5 nwd postgres-nwd` <br />
 
 ### Step 3
+Run redis-cache container
+`docker run -d --name redis-cache -p 6379:6379 redis` <br />
+
+Connect cache to network and specify ip <br />
+`docker network connect --ip 172.20.0.6 nwd redis-cache` <br />
+
+### Step 4
 Build api image (must be in api folder) <br />
 `docker build -t api -f .\Dockerfile.dev .` <br/>
 
 Run api container in dev mode <br />
 `docker run --name api_c -it --rm -p 4000:4000 --network=nwd -v D:\Technologie-chmurowe\lab05\zad7\api:/app -v /app/node_modules api` <br/>
 
-### Step 4
+### Step 5
 Try it <br />
 `curl "localhost:4000/api/nwd?x=16&y=14"` -> {"id":1,"nwd":2} <br />
