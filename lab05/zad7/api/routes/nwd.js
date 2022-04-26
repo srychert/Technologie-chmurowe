@@ -25,4 +25,9 @@ router.get('/', async (req, res) => {
 
 })
 
+router.get('/results', async (req, res) => {
+    const results = await client.query("SELECT * FROM results");
+    return res.send(results.rows);
+})
+
 module.exports = router;
