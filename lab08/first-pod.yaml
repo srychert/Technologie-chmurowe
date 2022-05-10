@@ -6,3 +6,7 @@ spec:
  containers:
  - name: first-pod
    image: nginx:alpine
+   ports:
+   - containerPort: 80
+   command: ["wget"]
+   args: ["localhost:80"]

@@ -8,3 +8,12 @@
 
 Quick index.html host <br />
 `python -m http.server 80` <br />
+
+## Zadanie 2
+
+First delete exisitng pod and run it again <br />
+`kubectl delete pod first-pod` <br />
+
+`kubectl logs first-pod` -> Basic logs <br />
+`kubectl logs first-pod` -> more info about pod <br />
+
