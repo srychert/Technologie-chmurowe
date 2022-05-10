@@ -2,11 +2,15 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: first-pod
+  labels:
+    app: Myapp
 spec:
  containers:
  - name: first-pod
    image: nginx:alpine
    ports:
    - containerPort: 80
-   command: ["wget"]
-   args: ["localhost:80"]
+   lifecycle:
+    postStart:
+      exec:
+        command: ["/bin/sh", "-c", "wget localhost:80"]
