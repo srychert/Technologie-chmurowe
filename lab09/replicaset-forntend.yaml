@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata: 
   name: frontend
 spec:
@@ -7,14 +7,17 @@ spec:
     matchLabels:
       tier: frontend
 
-  replicas: 1 
+  replicas: 2
   template: 
     metadata:
       labels:
         tier: frontend
         
-    spec:
-     containers:
-     - name: react-forntend
-       image: react-frontend
-       imagePullPolicy: Never
+    spec:  
+      containers:
+      - name: react-frontend
+        image: react-frontend:release0
+        imagePullPolicy: Never
+        ports:
+          - containerPort: 80
+      restartPolicy: Always
