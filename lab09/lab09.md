@@ -18,3 +18,14 @@
 `kubectl set image deployment/frontend react-frontend=react-frontend:release1` <br />
 
 ![ScreenShot](zad2-update-image.PNG) <br/>
+
+## Zadanie 3
+`kubectl rollout history deployment frontend` <br />
+
+![ScreenShot](zad3-history.PNG) <br/>
+
+Add `--record` at the end of `kubectl ...` command
+ > --record: Record current kubectl command in the resource annotation. If set to false, do not record the command. If set to true, record the command. If not set, default to updating the existing annotation value only if one already exists.
+
+`kubectl rollout undo deployment/frontend` <br />
+`kubectl rollout undo deployment/frontend --to-revision=2` <br />
