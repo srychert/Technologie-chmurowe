@@ -1,14 +1,14 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: frontend
+  name: backend
 spec:
   type: NodePort
   ports:
-    - port: 80
-      targetPort: 3000
+    - port: 5000
+      targetPort: 5000
       protocol: TCP
-      nodePort: 31000
+      nodePort: 31100
   selector:
     app: hello
-    tier: frontend
+    tier: backend

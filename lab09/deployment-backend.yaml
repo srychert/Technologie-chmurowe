@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: backend
+spec:
+  selector:
+    matchLabels:
+      app: hello
+      tier: backend
+
+  replicas: 1
+  template: 
+    metadata:
+      labels:
+        app: hello
+        tier: backend
+        
+    spec:  
+      containers:
+      - name: backend-node
+        image: backend:release0
+        imagePullPolicy: Never
+        ports:
+          - containerPort: 5000
+      restartPolicy: Always

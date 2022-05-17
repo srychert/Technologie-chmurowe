@@ -5,12 +5,14 @@ metadata:
 spec:
   selector:
     matchLabels:
+      app: hello
       tier: frontend
 
   replicas: 2
   template: 
     metadata:
       labels:
+        app: hello
         tier: frontend
         
     spec:  
