@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: frontend
+  labels:
+    tier: frontend
+spec:
+  containers:
+  - name: frontend-react
+    image: gcr.io/google-samples/hello-app:2.0
