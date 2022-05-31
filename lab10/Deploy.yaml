@@ -19,6 +19,9 @@ spec:
           image: postgres:alpine
           ports:
             - containerPort: 5432 
+          volumeMounts:
+          - mountPath: /postgres-data:/var/lib/postgresql/data
+            name: pg-volume
           env:
             - name: POSTGRES_DB
               valueFrom:
@@ -35,6 +38,11 @@ spec:
                 secretKeyRef:
                   name: database-secret-config
                   key: password
+      volumes:
+      - name: pg-volume
+        hostPath: 
+          path: /tmp/vols/pgdata
+          type: Directory
            
   replicas: 1
   selector:
