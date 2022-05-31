@@ -17,11 +17,24 @@ spec:
       containers:
         - name: postgres-baza
           image: postgres:alpine
+          ports:
+            - containerPort: 5432 
           env:
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  name: database-secret-config
+                  key: dbname
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: database-secret-config
+                  key: username
             - name: POSTGRES_PASSWORD
-              value: "tajne"
-            - name: PGPORT
-              value: "5432"
+              valueFrom:
+                secretKeyRef:
+                  name: database-secret-config
+                  key: password
            
   replicas: 1
   selector:
