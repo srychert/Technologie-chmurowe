@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: postgres-deploy
+  labels:
+    app: baza
+
+spec:
+  template:
+    metadata:
+      name: postgres-deploy
+      labels:
+        bb: baza
+
+    spec: 
+      containers:
+        - name: postgres-baza
+          image: postgres:alpine
+          env:
+            - name: POSTGRES_PASSWORD
+              value: "tajne"
+            - name: PGPORT
+              value: "5432"
+           
+  replicas: 1
+  selector:
+    matchLabels:
+      bb: baza
