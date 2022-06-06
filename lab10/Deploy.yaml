@@ -19,9 +19,9 @@ spec:
           image: postgres:alpine
           ports:
             - containerPort: 5432 
-          volumeMounts:
-          - mountPath: /postgres-data:/var/lib/postgresql/data
-            name: pg-volume
+          # volumeMounts:
+          # - mountPath: /postgres-data:/var/lib/postgresql/data
+          #   name: pg-volume
           env:
             - name: POSTGRES_DB
               valueFrom:
@@ -38,11 +38,18 @@ spec:
                 secretKeyRef:
                   name: database-secret-config
                   key: password
+          volumeMounts:
+          - mountPath: /var/lib/postgresql/data
+            name: postgres-pv-claim
+      # volumes:
+      # - name: pg-volume
+      #   hostPath: 
+      #     path: /tmp/vols/pgdata
+      #     type: Directory
       volumes:
-      - name: pg-volume
-        hostPath: 
-          path: /tmp/vols/pgdata
-          type: Directory
+      - name: postgres-pv-claim
+        persistentVolumeClaim:
+          claimName: postgres-pv-claim
            
   replicas: 1
   selector:
