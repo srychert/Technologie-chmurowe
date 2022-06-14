@@ -10,6 +10,7 @@ function App() {
         <p>
           Hello from frontend!
         </p>
+        <img src="https://images.freeimages.com/images/large-previews/a31/colorful-umbrella-1176220.jpg" alt="umbrella" width="500" height="333"></img>
       </header>
     </div>
   );
