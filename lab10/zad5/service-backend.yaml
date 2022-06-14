@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: backend
+spec:
+  # default type
+  # type: ClusterIP
+  ports:
+    - protocol: TCP
+      # internal port
+      port: 5000
+      targetPort: 5000
+  selector:
+    app: hello
+    tier: backend

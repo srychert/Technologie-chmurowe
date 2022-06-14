@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: frontend
+spec:
+  selector:
+    matchLabels:
+      app: hello
+      tier: frontend
+
+  replicas: 1
+  template: 
+    metadata:
+      labels:
+        app: hello
+        tier: frontend
+        
+    spec:  
+      containers:
+      - name: react-frontend
+        image: react-frontend:release0
+        imagePullPolicy: Never
+        ports:
+          - containerPort: 80
+      restartPolicy: Always
