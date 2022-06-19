@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router({ mergeParams: true });
+const redisClient = require("../config/redisClient");
 
 const Divider = require("../models/Divider");
 
@@ -14,9 +15,25 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
+  const { number } = req.body;
   try {
-    const { number } = req.body;
+    const result = await redisClient.get(number)
+    if (result !== null) {
+      const dividers = JSON.parse(result);
+      const obj = {
+        number: number,
+        dividers: dividers,
+        info: "form cache"
+      }
+      res.json(obj);
+      return
+    }
+  } catch (err) {
+    res.send(err)
+  }
 
+
+  try {
     function findDividers(n) {
       let dividers = []
 
@@ -33,9 +50,15 @@ router.post("/", async (req, res) => {
       return dividers
     }
 
+    const dividers = findDividers(number)
+
+    redisClient.set(number, JSON.stringify(dividers))
+      .then(r => console.log(r))
+      .catch(err => console.err(err))
+
     const result = await Divider.create({
       number: number,
-      dividers: findDividers(number),
+      dividers: dividers,
     })
     res.send(result);
   } catch (e) {

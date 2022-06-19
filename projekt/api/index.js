@@ -8,14 +8,14 @@ app.use(cors());
 app.use("/dividers", dividers);
 
 
-// const redisClient = require("./config/redisClient");
+const redisClient = require("./config/redisClient");
 
-// redisClient.on("error", (err) => {
-//   console.error("Error connecting to Redis", err);
-// });
-// redisClient.on("connect", () => {
-//   console.log(`Connected to Redis.`);
-// });
+redisClient.on("error", (err) => {
+  console.error("Error connecting to Redis", err);
+});
+redisClient.on("connect", () => {
+  console.log(`Connected to Redis.`);
+});
 
 
 const dbConnData = {
@@ -42,3 +42,5 @@ const port = process.env.PORT || 4000
 app.listen(port, () => {
   console.log(`API listening on port ${port}`);
 });
+
+console.log(process.env)
