@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const { number } = req.body;
+  const number = Math.abs(req.body.number);
   try {
     const result = await redisClient.get(number)
     if (result !== null) {
