@@ -1,7 +1,8 @@
+import React, { useState } from 'react';
 import axios from 'axios';
 
 function App() {
-  // axios.get('/api').then(r => console.log(r)).catch(err => console.error(err))
+  const [dividers, setDividers] = useState([])
 
   const handleSubmit = async (event) => {
     //Prevent page reload
@@ -13,6 +14,7 @@ function App() {
       number: parseInt(number)
     }).then(response => {
       console.log(response)
+      setDividers(response.data.dividers)
     }).catch(error => {
       console.error(error)
     })
@@ -21,18 +23,17 @@ function App() {
 
   return (
     <div className="App">
-      Hello
       <div className="login-form">
+        <h3>Get list of dividers for:</h3>
         <div className="form">
           <form onSubmit={handleSubmit}>
-            <div className="input-container">
-              <label>Get dividers of:</label>
-              <input type="number" name="number" required />
-            </div>
-            <div className="button-container">
-              <button type="submit">Send</button>
-            </div>
+            <label>Number</label>
+            <input type="number" name="number" required />
+            <button type="submit" class="button-1">Ok</button>
           </form>
+        </div>
+        <div className="dividers">
+          <h3>{dividers && dividers.length !== 0 && JSON.stringify(dividers)}</h3>
         </div>
       </div>
     </div>
