@@ -9,4 +9,4 @@ spec:
       port: 4000
       targetPort: 4000
   selector:
-    app: app
+    app: api
