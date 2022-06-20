@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
       const obj = {
         number: number,
         dividers: dividers,
-        info: "form cache"
+        info: "from cache"
       }
       res.json(obj);
       return
@@ -34,7 +34,7 @@ router.post("/", async (req, res) => {
 
 
   try {
-    function findDividers(n) {
+    async function findDividers(n) {
       let dividers = []
 
       const end = n / 2 + 1
@@ -50,17 +50,20 @@ router.post("/", async (req, res) => {
       return dividers
     }
 
-    const dividers = findDividers(number)
+    const dividers = await findDividers(number)
 
     redisClient.set(number, JSON.stringify(dividers))
       .then(r => console.log(r))
       .catch(err => console.err(err))
 
-    const result = await Divider.create({
+    const result = await Divider.findOneAndUpdate({
+      number: number,
+    }, {
       number: number,
       dividers: dividers,
-    })
-    res.send(result);
+    }, { new: true, upsert: true })
+
+    res.send(result)
   } catch (e) {
     console.log(e.message);
     res.status(500).send(e.message);
