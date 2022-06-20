@@ -5,7 +5,7 @@ Uruchomienie kontrolera nginx ingress: <br />
 `kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml`
 
 ## Frontend - React app
-Zbudowanie obrazu dla apliakcji (w folderze app): <br /> 
+Zbudowanie obrazu dla apliakcji (w folderze app2): <br /> 
 `docker build -t app-react:production -f .\Dockerfile .` <br /> 
 
 ### Liczba replik: 2
